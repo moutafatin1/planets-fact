@@ -6,7 +6,7 @@ export const antonio = Antonio({
 });
 export const spartan = League_Spartan({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const Home = () => {

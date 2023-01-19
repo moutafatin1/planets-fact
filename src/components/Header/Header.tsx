@@ -50,7 +50,7 @@ const links = [
 ];
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="">
       <div className="mx-auto flex items-center justify-between px-6 py-4">

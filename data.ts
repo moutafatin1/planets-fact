@@ -28,7 +28,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-mercury.svg",
       internal: "/planet-mercury-internal.svg",
-      geology: "/geology-mercury.png",
+      geology: "/planet-mercury-geology.png",
     },
   },
   {
@@ -55,7 +55,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-venus.svg",
       internal: "/planet-venus-internal.svg",
-      geology: "/geology-venus.png",
+      geology: "/planet-venus-geology.png",
     },
   },
   {
@@ -82,7 +82,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-earth.svg",
       internal: "/planet-earth-internal.svg",
-      geology: "/geology-earth.png",
+      geology: "/planet-earth-geology.png",
     },
   },
   {
@@ -109,7 +109,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-mars.svg",
       internal: "/planet-mars-internal.svg",
-      geology: "/geology-mars.png",
+      geology: "/planet-mars-geology.png",
     },
   },
   {
@@ -137,7 +137,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-jupiter.svg",
       internal: "/planet-jupiter-internal.svg",
-      geology: "/geology-jupiter.png",
+      geology: "/planet-jupiter-geology.png",
     },
   },
   {
@@ -164,7 +164,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-saturn.svg",
       internal: "/planet-saturn-internal.svg",
-      geology: "/geology-saturn.png",
+      geology: "/planet-saturn-geology.png",
     },
   },
   {
@@ -191,7 +191,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-uranus.svg",
       internal: "/planet-uranus-internal.svg",
-      geology: "/geology-uranus.png",
+      geology: "/planet-uranus-geology.png",
     },
   },
   {
@@ -218,7 +218,7 @@ export const PlanetsData = [
     images: {
       planet: "/planet-neptune.svg",
       internal: "/planet-neptune-internal.svg",
-      geology: "/geology-neptune.png",
+      geology: "/planet-neptune-geology.png",
     },
   },
 ];

@@ -16,6 +16,7 @@ module.exports = {
         saturn: "#FCCB6B",
         uranus: "#65F0D5",
         neptune: "#497EFA",
+        activeTab: "#419EBB",
       },
       backgroundImage: {
         main: "url('/background-stars.svg')",
