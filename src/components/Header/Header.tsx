@@ -67,7 +67,7 @@ export const Header = () => {
           {links.map((link) => (
             <li key={link.name} className="px-6 transition hover:bg-slate-50/5">
               <MobileNavLink href={link.href} color={link.color}>
-                mercury
+                {link.name}
               </MobileNavLink>
             </li>
           ))}
