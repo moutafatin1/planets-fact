@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-bg bg-main;
+    @apply bg-mainBg bg-main;
   }
 }
