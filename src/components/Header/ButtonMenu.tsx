@@ -7,7 +7,10 @@ type ButtonMenuProps = {
 
 export const ButtonMenu = ({ isOpen, ...props }: ButtonMenuProps) => {
   return (
-    <button {...props} className="relative flex w-6 flex-col gap-1">
+    <button
+      {...props}
+      className={fn("relative flex w-6 flex-col gap-1", props.className)}
+    >
       <span
         className={fn(
           "h-[3px] w-full bg-white transition duration-150",
