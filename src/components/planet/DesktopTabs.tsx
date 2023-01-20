@@ -8,7 +8,7 @@ type DesktopTabsProps = {
 };
 
 const bgColors = {
-  mercury: "bg-mercury",
+  mercury: "bg-activeTab",
   venus: "bg-venus",
   earth: "bg-earth",
   mars: "bg-mars",
@@ -24,7 +24,7 @@ export const DesktopTabs = ({ planetName }: DesktopTabsProps) => {
   const bgColor = bgColors[planetName.toLowerCase() as keyof typeof bgColors];
 
   return (
-    <nav className="hidden min-w-[18rem] flex-[2] flex-col gap-4 md:flex">
+    <nav className="hidden w-full min-w-[18rem] flex-[2] flex-col gap-4 md:flex">
       {tabs.map((tab, index) => (
         <Link
           key={tab.name}
@@ -32,7 +32,7 @@ export const DesktopTabs = ({ planetName }: DesktopTabsProps) => {
             tab.key ? tab.key : tab.name
           }`}
           className={fn(
-            "flex items-center gap-5 border border-silver px-5 py-2 font-bold",
+            "flex items-center gap-5 border border-silver px-5 py-2 font-bold tracking-wider lg:py-3",
             tabParams === (tab.key ? tab.key : tab.name) &&
               `border-opacity-0 ${bgColor}`
           )}

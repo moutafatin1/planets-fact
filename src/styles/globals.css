@@ -4,6 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-mainBg bg-main;
+    @apply h-screen bg-mainBg bg-main;
+  }
+
+  #__next {
+    @apply lg:flex lg:h-full lg:flex-col lg:justify-between lg:gap-16;
   }
 }
