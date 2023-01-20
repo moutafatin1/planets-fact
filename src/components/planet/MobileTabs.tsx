@@ -2,19 +2,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { spartan } from "../../pages";
 import { fn } from "../../utils";
+import { tabs } from "./tabs";
 
-const tabs = [
-  {
-    name: "overview",
-  },
-  {
-    name: "structure",
-  },
-  {
-    name: "surface",
-    key: "geology",
-  },
-];
+
 
 type MobileTabsProps = {
   planetName: string;
