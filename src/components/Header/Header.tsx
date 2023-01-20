@@ -11,6 +11,10 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
+  function toggleMenu() {
+    setIsOpen((old) => !old);
+  }
+
   return (
     <header className="">
       <div className="container mx-auto flex items-center justify-between px-6 py-4 md:flex-col lg:flex-row lg:py-0">
@@ -20,7 +24,7 @@ export const Header = () => {
           the planets
         </span>
         <ButtonMenu
-          onClick={() => setIsOpen((old) => !old)}
+          onClick={toggleMenu}
           isOpen={isOpen}
           className="md:hidden"
         />
@@ -41,7 +45,7 @@ export const Header = () => {
         </nav>
       </div>
       <hr className="border-divider/50" />
-      <MobileMenu isOpen={isOpen} />
+      <MobileMenu isOpen={isOpen} toggle={toggleMenu} />
     </header>
   );
 };

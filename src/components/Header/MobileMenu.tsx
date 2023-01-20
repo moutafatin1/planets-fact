@@ -7,9 +7,10 @@ import { links } from "./links";
 
 type MobileMenuProps = {
   isOpen: boolean;
+  toggle: () => void;
 };
 
-export const MobileMenu = ({ isOpen }: MobileMenuProps) => {
+export const MobileMenu = ({ isOpen, toggle }: MobileMenuProps) => {
   if (!isOpen) return null;
   return (
     <ul
@@ -19,7 +20,11 @@ export const MobileMenu = ({ isOpen }: MobileMenuProps) => {
       }
     >
       {links.map((link) => (
-        <li key={link.name} className="px-6 transition hover:bg-slate-50/5">
+        <li
+          key={link.name}
+          onClick={toggle}
+          className="px-6 transition hover:bg-slate-50/5"
+        >
           <MobileNavLink href={link.href} color={link.color}>
             {link.name}
           </MobileNavLink>
