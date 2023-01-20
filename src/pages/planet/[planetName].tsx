@@ -7,20 +7,9 @@ import { spartan } from "..";
 import { PlanetsData } from "../../../data";
 import { Header } from "../../components/Header";
 import { IconSource } from "../../components/icons";
+import { MobileTabs } from "../../components/planet/MobileTabs";
 import { fn } from "../../utils";
 
-const tabs = [
-  {
-    name: "overview",
-  },
-  {
-    name: "structure",
-  },
-  {
-    name: "surface",
-    key: "geology",
-  },
-];
 const stats = [
   {
     key: "rotation",
@@ -61,28 +50,7 @@ const PlantDetailsPage = ({
   return (
     <>
       <Header />
-      <nav
-        className={fn(
-          "flex items-center justify-between border-b  border-divider/50 p-6 text-xs font-bold uppercase text-silver",
-          spartan.className
-        )}
-      >
-        {tabs.map((tab) => (
-          <Link
-            key={tab.name}
-            href={`/planet/${planet.name.toLowerCase()}/?tab=${
-              tab.key ? tab.key : tab.name
-            }`}
-            className={fn(
-              "relative ",
-              tabParams === (tab.key ? tab.key : tab.name) &&
-                "text-white after:absolute after:top-9 after:left-0 after:h-1 after:w-full after:bg-activeTab after:content-[''] "
-            )}
-          >
-            {tab.name}
-          </Link>
-        ))}
-      </nav>
+      <MobileTabs planetName={planet.name} />
       <main>
         <Image
           src={imageSrc}
