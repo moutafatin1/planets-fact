@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { spartan } from "../../pages";
@@ -11,26 +12,41 @@ type MobileMenuProps = {
 };
 
 export const MobileMenu = ({ isOpen, toggle }: MobileMenuProps) => {
-  if (!isOpen) return null;
   return (
-    <ul
-      className={
-        (fn(spartan.className),
-        "absolute inset-x-0  z-10 my-6 bg-mainBg md:hidden")
-      }
-    >
-      {links.map((link) => (
-        <li
-          key={link.name}
-          onClick={toggle}
-          className="px-6 transition hover:bg-slate-50/5"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.ul
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0, height: 0 }}
+          className={
+            (fn(spartan.className),
+            "absolute inset-x-0  z-10 my-6 bg-mainBg md:hidden")
+          }
         >
-          <MobileNavLink href={link.href} color={link.color}>
-            {link.name}
-          </MobileNavLink>
-        </li>
-      ))}
-    </ul>
+          {links.map((link, index) => (
+            <motion.li
+              initial={{ translateX: "100%" }}
+              animate={{ translateX: 0 }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{
+                ease: [0.06, 0.9, 1, 0.98],
+                duration: 0.5,
+                delay: (index * 0.2 * 8 * 5 + 0.5) / 100,
+              }}
+              key={link.name}
+              onClick={toggle}
+              className="px-6 transition hover:bg-slate-50/5"
+            >
+              <MobileNavLink href={link.href} color={link.color}>
+                {link.name}
+              </MobileNavLink>
+            </motion.li>
+          ))}
+        </motion.ul>
+      )}
+    </AnimatePresence>
   );
 };
 

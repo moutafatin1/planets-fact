@@ -1,8 +1,11 @@
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { fn } from "../../utils";
 
 type PlanetImageProps = {
   src: string;
+  planetImage: string;
   planetName: string;
 };
 
@@ -19,16 +22,61 @@ const sizes = {
   neptune: "h-44 w-44 md:h-72 md:w-72 lg:h-[28rem] lg:w-[28rem] lg:my-12",
 };
 
-export const PlanetImage = ({ planetName, src }: PlanetImageProps) => {
+export const PlanetImage = ({
+  planetName,
+  src,
+  planetImage,
+}: PlanetImageProps) => {
   const size = sizes[planetName.toLowerCase() as keyof typeof sizes];
+  const router = useRouter();
+  console.log("🚀 ~ file: PlanetImage.tsx:31 ~ router", router);
+  const isGeology = router.query.tab === "geology";
+  console.log("🚀 ~ file: PlanetImage.tsx:32 ~ isGeology", isGeology);
   return (
-    <figure className={fn("relative mx-auto my-24 lg:mx-0 lg:ml-auto", size)}>
-      <Image
-        src={src}
-        alt={planetName}
-        fill
-        className="absolute  object-contain"
-      />
+    <figure className="mx-auto">
+      <AnimatePresence initial={false} mode="wait">
+        {!isGeology && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            className={fn("relative mx-auto my-24 lg:mx-0 lg:ml-auto", size)}
+            key={src}
+          >
+            <Image
+              src={src}
+              alt={planetName}
+              fill
+              className="absolute  object-contain"
+            />
+          </motion.div>
+        )}
+        {isGeology && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            className={fn("relative mx-auto my-24 lg:mx-0 lg:ml-auto", size)}
+          >
+            <Image
+              src={planetImage}
+              alt={planetName}
+              fill
+              className="absolute  object-contain"
+            />
+            <div className="relative left-1/2 h-36 w-32 translate-y-[60%] -translate-x-1/2  md:translate-y-[90%] lg:translate-y-full">
+              <Image
+                src={src}
+                alt={planetName}
+                fill
+                className="absolute  object-contain"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </figure>
   );
 };
