@@ -54,7 +54,11 @@ const PlantDetailsPage = ({
       <MobileTabs planetName={planet.name} />
       <main className={fn("container mx-auto", spartan.className)}>
         <div className="lg:flex lg:items-center lg:justify-center lg:gap-24">
-          <PlanetImage src={imageSrc} planetName={planet.name} />
+          <PlanetImage
+            src={imageSrc}
+            planetImage={planet.images.planet}
+            planetName={planet.name}
+          />
           <div className="px-6 text-center md:flex md:items-center md:gap-12 md:text-left lg:ml-auto lg:max-w-md lg:flex-col lg:items-start">
             <div className="flex-[3]">
               <h2
